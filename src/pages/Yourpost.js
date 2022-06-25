@@ -30,10 +30,8 @@ const Yourpost = ({ isAuth }) => {
   };
   return (
     <div className="homePage">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      
+      
     {postLists.map((post) => {
 
       if(isAuth&&post.author.id===auth.currentUser.uid)
