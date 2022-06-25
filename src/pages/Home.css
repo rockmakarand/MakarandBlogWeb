@@ -1,0 +1,35 @@
+.iuu{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+    border-radius: 30px;
+    width:60vw;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.jj{
+    margin-left: auto;
+    margin-right: auto;
+    justify-self: center;
+}
+.bb{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  clip-path: circle();
+ 
+}
+@media  screen and (max-width:900px) {
+    .iuu{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 20px;
+        padding: 20px;
+        border-radius: 30px;
+        width:85vw
+        
+    
+    }
+}
