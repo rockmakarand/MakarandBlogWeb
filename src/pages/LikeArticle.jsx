@@ -1,6 +1,6 @@
 import React from "react";
-import {useAuthState } from 'react-firebase-hooks/auth'
-import { auth,db } from "../firebase-config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db } from "../firebase-config";
 import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
 
 export default function LikeArticle({ id, likes }) {

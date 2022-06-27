@@ -24,12 +24,9 @@ const Account = () => {
     return (
     
         <div>
+          <br/>
             <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+           
             <div className="iuu">
             <br/>
             <br/>

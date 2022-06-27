@@ -1,23 +1,26 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBONirP08K_PP7y3v9t5SU-ed9u2l51Y5g",
-    authDomain: "budgetapp-9d755.firebaseapp.com",
-    projectId: "budgetapp-9d755",
-    storageBucket: "budgetapp-9d755.appspot.com",
-    messagingSenderId: "274152331325",
-    appId: "1:274152331325:web:61de23aa21fe91efaf3254",
-    measurementId: "G-35KRRL0DXG"
-
+    apiKey: "AIzaSyAP0XQ44gF3bPMUFDnaG2PpzvEdIbRhU_4",
+    authDomain: "oooo-b8779.firebaseapp.com",
+    projectId: "oooo-b8779",
+    storageBucket: "oooo-b8779.appspot.com",
+    messagingSenderId: "1091398772227",
+    appId: "1:1091398772227:web:112704f473b49187c9d036",
+    measurementId: "G-SF3J4JVE8E"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export const storage = getStorage();
+
 
 export const db = getFirestore(app);
 export const auth = getAuth(app);
