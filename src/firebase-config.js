@@ -9,13 +9,13 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDyI5s04plPsU9SppS4HtU-F_LTdzKqBfs",
-    authDomain: "fir-e-ba421.firebaseapp.com",
-    projectId: "fir-e-ba421",
-    storageBucket: "fir-e-ba421.appspot.com",
-    messagingSenderId: "875515451744",
-    appId: "1:875515451744:web:6637ca7430c975a4f42605",
-    measurementId: "G-Q4CPQ8JP50"
+    apiKey: "AIzaSyDxj9IvzjTZmE0I6BssmchgztoomwPUjBY",
+  authDomain: "chemapp-6f12b.firebaseapp.com",
+  projectId: "chemapp-6f12b",
+  storageBucket: "chemapp-6f12b.appspot.com",
+  messagingSenderId: "671846154286",
+  appId: "1:671846154286:web:01668ac432b0b6509f9fbf",
+  measurementId: "G-GMTVHTQG7Z"
 };
 
 // Initialize Firebase
