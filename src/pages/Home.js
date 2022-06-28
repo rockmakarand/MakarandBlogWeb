@@ -11,6 +11,7 @@ import Likepost from "./Likepost";
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "posts");
+  // eslint-disable-next-line no-unused-vars
   const { id } = useParams();
 
  

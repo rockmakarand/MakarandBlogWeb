@@ -29,7 +29,7 @@ function App() {
             <Link to="/"> Home </Link>
             <Link to="/createpost"> Create  </Link>
             <Link to="/yourpost"> Your Blogs </Link>
-            <Link to="/liked"> Liked Blogs </Link>
+            
 
             <Link to="/account"> Account </Link>
 
