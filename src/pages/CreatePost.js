@@ -15,6 +15,8 @@ function CreatePost({ isAuth }) {
       title,
       postText,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid,  },
+      likes:[],
+      //comments:[]
       
     });
     navigate("/");

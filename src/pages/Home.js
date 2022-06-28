@@ -3,13 +3,16 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc, } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
+import { useParams } from "react-router-dom";
 import './Home.css'
-//import LikeArticle from "./LikeArticle";
+import Likepost from "./Likepost";
 
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "posts");
+  const { id } = useParams();
+
  
   useEffect(() => {
     const getPosts = async () => {
@@ -29,7 +32,7 @@ function Home({ isAuth }) {
       <h1 style={{textAlign:'center',marginLeft:10,marginRight:10}}>View The blogs of various other Authors and Yours too!</h1>
       
        
-      {postLists.map((post,createdAt,user,seconds) => {
+      {postLists.map((post,createdAt,user,id,seconds) => {
         if(isAuth)
       {
 
@@ -61,8 +64,15 @@ function Home({ isAuth }) {
             </div>
             <div className="postTextContainer"> {post.postText} </div>
             <h3>@{post.author.name}</h3>
+            <div className="likepost">
+              {user && <Likepost id={id} likes={post.likes} />}
+              <div className="pe-2">
+                <p>{post.likes}</p>
+              </div>
+            </div>
           
-          
+           
+            
             
           </div>
         );

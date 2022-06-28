@@ -10,6 +10,7 @@ import Yourpost from "./pages/Yourpost";
 //import {AuthContextProvider} from './pages/AuthContext'
 //import Protected from './pages/Protected'
 import Account from "./pages/Account";
+import Liked from "./pages/Liked";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -28,7 +29,10 @@ function App() {
             <Link to="/"> Home </Link>
             <Link to="/createpost"> Create  </Link>
             <Link to="/yourpost"> Your Blogs </Link>
+            <Link to="/liked"> Liked Blogs </Link>
+
             <Link to="/account"> Account </Link>
+
 
             
             
@@ -39,6 +43,8 @@ function App() {
         <Route path="/" element={<Home isAuth={isAuth} />} />
         <Route path="/createpost" element={<CreatePost isAuth={isAuth} />} />
         <Route path="/yourpost" element={<Yourpost isAuth={isAuth} />} />
+        <Route path="/liked" element={<Liked isAuth={isAuth} />} />
+
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         <Route path="/account" element={<Account setIsAuth={setIsAuth} />} />
 
