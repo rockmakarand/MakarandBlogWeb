@@ -152,7 +152,7 @@ textarea {
 .homePage .post {
   width: 600px;
   height: auto;
-  max-height: 600px;
+  
   background-color: rgb(250, 250, 250);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 20px;
@@ -207,7 +207,7 @@ textarea {
   .homePage .post {
     width: 80vw;
     height: auto;
-    max-height: 2000px;
+   
     background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 20px;
