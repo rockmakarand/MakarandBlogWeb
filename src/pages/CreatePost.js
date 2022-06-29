@@ -10,12 +10,13 @@ function CreatePost({ isAuth }) {
   const postsCollectionRef = collection(db, "posts");
   let navigate = useNavigate();
 
-  const createPost = async () => {
+  const createPost = async () => 
+  {
     await addDoc(postsCollectionRef, {
       title,
       postText,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid,  },
-      likes:[],
+      likes:[]
       //comments:[]
       
     });

@@ -66,10 +66,8 @@ function Home({ isAuth }) {
             <div className="postTextContainer"> {post.postText} </div>
             <h3>@{post.author.name}</h3>
             <div className="likepost">
-              {user && <Likepost id={id} likes={post.likes} />}
-              <div className="pe-2">
-                <p>{post.likes}</p>
-              </div>
+             <Likepost/>
+              
             </div>
           
            
