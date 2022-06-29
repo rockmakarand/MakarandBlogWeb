@@ -21,7 +21,27 @@
   margin-right: auto;
   width: 30%;
   clip-path: circle();
+  
  
+}
+.ui{
+    box-shadow: 4px 4px 4px gainsboro;
+    margin: auto;
+     padding: 40px;
+     width: 40vw;
+     height: auto;
+     margin-top: 3px;
+
+ 
+     
+     
+    
+     position: absolute;
+   top: 20%;
+   left: 28%;
+   
+    
+   background-color: lavender;
 }
 @media  screen and (max-width:900px) {
     .iuu{
@@ -31,5 +51,22 @@
         width:85vw
         
     
+    }
+    .ui{
+        box-shadow: 4px 4px 4px gainsboro;
+        margin: auto;
+         padding: 40px;
+         width: 80vw;
+         height: auto;
+     
+         
+         
+        
+         position: absolute;
+       top: 20%;
+       left: 10%;
+       
+        
+       background-color: lavender;
     }
 }

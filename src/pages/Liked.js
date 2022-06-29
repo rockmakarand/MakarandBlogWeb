@@ -1,80 +1,96 @@
 /* eslint-disable array-callback-return */
-/* eslint-disable jsx-a11y/alt-text */
-import React, { useEffect, useState } from "react";
-import { getDocs, collection, deleteDoc, doc, } from "firebase/firestore";
+/* eslint-disable no-unused-vars */
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import React, { useState, useEffect } from "react";
 import { auth, db } from "../firebase-config";
-import './Home.css'
-//import LikeArticle from "./LikeArticle";
+import Deletepost from "./Deletepost";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Likepost from "./Likepost";
+import { Link } from "react-router-dom";
 
-
-function Liked({ isAuth }) {
-  const [postLists, setPostList] = useState([]);
-  const postsCollectionRef = collection(db, "posts");
- 
+export default function Liked() {
+  const [articles, setArticles] = useState([]);
+  const [user] = useAuthState(auth);
   useEffect(() => {
-    const getPosts = async () => {
-      const data = await getDocs(postsCollectionRef);
-      setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-
-    getPosts();
-  });
-
-  const deletePost = async (id) => {
-    const postDoc = doc(db, "posts", id);
-    await deleteDoc(postDoc);
-  };
+    const articleRef = collection(db, "Articles");
+    const q = query(articleRef, orderBy("createdAt", "desc"));
+    onSnapshot(q, (snapshot) => {
+      const articles = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setArticles(articles);
+      console.log(articles);
+    });
+  }, []);
+  
+  
   return (
-    <div className="homePage">
-      <h1 style={{textAlign:'center',marginLeft:10,marginRight:10}}>View The blogs of various other Authors and Yours too!</h1>
-      
-       
-      {postLists.map((post,createdAt,user,seconds,currentUser) => {
-        if(isAuth)
-      {
-
-         
-        if (post.likes?.includes(currentUser.uid))
-        {
-            return (
-          
-          
-                <div className="post">
-                    
-                  
-                
-                  <div className="postHeader">
-                    <div className="title">
-                      <h1> {post.title}</h1>
-                    </div>
-                    <div className="deletePost">
-                      {isAuth && post.author.id === auth.currentUser.uid && (
-                        <button
-                          onClick={() => {
-                            deletePost(post.id);
-                          }}
-                        >
-                          {" "}
-                          &#128465;
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                  <div className="postTextContainer"> {post.postText} </div>
-                  <h3>@{post.author.name}</h3>
-                
-                
-                  
-                </div>
-              );
-        }
-        
-                  }
-      })}
-          
-    </div>
     
+    <div>
+
+      
+        {articles.map(
+          ({
+            id,
+            title,
+            description,
+            imageUrl,
+            createdAt,
+            createdBy,
+            userId,
+            likes,
+            comments,
+          }) => 
+          {
+            if(likes?.includes(user.uid))
+  {
+  return(
+    
+    <div className="border mt-3 p-3 bg-light" key={id}>
+      <br/>
+      <br/>
+      <br/>
+    <div className="row">
+     
+      <div className="col-9 ps-3">
+        <div className="row">
+         
+          <div className="col-6 d-flex flex-row-reverse">
+            {user && user.uid === userId && (
+              <Deletepost id={id} imageUrl={imageUrl} />
+            )}
+          </div>
+        </div>
+        <h3>{title}</h3>
+        <p>{createdAt.toDate().toDateString()}</p>
+        <h5>{description}</h5>
+
+        <div className="d-flex flex-row-reverse">
+          {user && <Likepost id={id} likes={likes} />}
+          <div className="pe-2">
+            <p>{likes?.length} likes</p>
+          </div>
+          {comments && comments.length > 0 && (
+            <div className="pe-2">
+              <p>{comments?.length} comments</p>
+            </div>
+          )}
+           <div className="col-11">
+                     {createdBy && (
+                       <span className><h3>@{createdBy}</h3></span>
+                     )}
+                   </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  )
+  }
+           
+          }
+        )
+      }
+    </div>
   );
 }
-
-export default Liked;

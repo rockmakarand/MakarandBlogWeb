@@ -11,7 +11,7 @@ import Yourpost from "./pages/Yourpost";
 //import Protected from './pages/Protected'
 import Account from "./pages/Account";
 import Liked from "./pages/Liked";
-
+import Navbar from "./pages/Navbar";
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
@@ -26,15 +26,7 @@ function App() {
           <Link to="/login"> Login </Link>
         ) : (
           <>
-            <Link to="/"> Home </Link>
-            <Link to="/createpost"> Create  </Link>
-            <Link to="/yourpost"> Your Blogs </Link>
-            
-
-            <Link to="/account"> Account </Link>
-
-
-            
+            <Navbar/>
             
           </>
         )}

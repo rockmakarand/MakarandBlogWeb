@@ -1,18 +1,18 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase-config";
-import { arrayRemove, arrayUnion, collection, doc, updateDoc } from "firebase/firestore";
+import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
 
-export default function Likepost({likes}) {
+export default function Likepost({ id, likes }) {
+  const [user] = useAuthState(auth);
 
-   const likesRef = collection(db, "posts");
+  const likesRef = doc(db, "Articles", id);
 
   const handleLike = () => 
   {
-    if (likes?.includes(auth.currentUser.uid)) {
+    if (likes?.includes(user.uid)) {
       updateDoc(likesRef, {
-        likes: arrayRemove(auth.currentUser.uid),
+        likes: arrayRemove(user.uid),
       }).then(() => {
           console.log("unliked");
       }).catch((e) => {
@@ -21,7 +21,7 @@ export default function Likepost({likes}) {
     }
     else{
         updateDoc(likesRef,{
-            likes:arrayUnion(auth.currentUser.uid)
+            likes:arrayUnion(user.uid)
         }).then(() => {
             console.log("liked");
         }).catch((e) => {
@@ -32,15 +32,13 @@ export default function Likepost({likes}) {
   return (
     <div>
       <i
-        className={`fa fa-heart${!likes?.includes(auth.currentUser.uid) ? "-o" : ""} fa-lg`}
+        className={`fa fa-heart${!likes?.includes(user.uid) ? "-o" : ""} fa-lg`}
         style={{
           cursor: "pointer",
-          color: likes?.includes(auth.currentUser.uid) ? "red" : null,
+          color: likes?.includes(user.uid) ? "red" : null,
         }}
         onClick={handleLike}
       />
     </div>
   );
 }
-
-
