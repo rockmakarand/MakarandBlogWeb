@@ -12,7 +12,7 @@ function Navbar() {
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
            Blog Website
-            <i className="fas fa-code"></i>
+            
           </NavLink>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
@@ -73,7 +73,7 @@ function Navbar() {
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+            <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
           </div>
         </div>
       </nav>

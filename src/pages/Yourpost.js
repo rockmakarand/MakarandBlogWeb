@@ -47,14 +47,13 @@ export default function Yourpost() {
   {
   return(
     
-    <div className="border mt-3 p-3 bg-light" key={id}>
-      <br/>
-      <br/>
-      <br/>
-    <div className="row">
-     
-      <div className="col-9 ps-3">
-        <div className="row">
+    <div className="  border mt-3 p-3 w-40 bg-red " key={id}>
+              
+              <div className="row">
+              <div className="col-9 ps-3">
+
+              <div className="row">
+                   
           
           <div className="col-6 d-flex flex-row-reverse">
             {user && user.uid === userId && (
@@ -78,7 +77,7 @@ export default function Yourpost() {
           )}
            <div className="col-11">
                      {createdBy && (
-                       <span className><h3>@{createdBy}</h3></span>
+                       <span className><h3 style={{marginLeft:30}}>@{createdBy}</h3></span>
                      )}
                    </div>
         </div>
