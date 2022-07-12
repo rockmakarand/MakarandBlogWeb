@@ -26,7 +26,8 @@ export default function CreatePost() {
     setFormData({ ...formData, image: e.target.files[0] });
   };
 
-  const handlePublish = () => {
+  const handlePublish = () => 
+  {
     if (!formData.title || !formData.description ) {
       alert("Please fill all the fields");
       return;

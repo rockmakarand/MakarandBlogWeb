@@ -29,8 +29,9 @@ export default function Articles() {
       <br/>
       <br/>
       {articles.length === 0 ? (
-        <p>No articles found!</p>
-      ) : (
+        <p>No Posts found!</p>
+      ) : 
+      (
         articles.map(
           ({
             id,

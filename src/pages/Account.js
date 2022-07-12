@@ -37,12 +37,12 @@ const Account = () => {
         <br/>
         <br/>
         
-        <h2 style={{textAlign:'center',marginLeft:10,marginRight:10}}> Name:{auth.currentUser.displayName}</h2>
+        <h2 style={{textAlign:'center',marginLeft:10,marginRight:10}}> Name:{auth.currentUser?.displayName}</h2>
         <br/>
-        <h2 style={{textAlign:'center',marginLeft:10,marginRight:10}}>Email:{auth.currentUser.email}</h2>
+        <h2 style={{textAlign:'center',marginLeft:10,marginRight:10}}>Email:{auth.currentUser?.email}</h2>
         <br/>
         <h2 style={{textAlign:'center',marginLeft:10,marginRight:10}}>Profile Picture:</h2>
-        <img src={auth.currentUser.photoURL} className="bb"></img>
+        <img src={auth.currentUser?.photoURL} className="bb"></img>
         </div>
         <br/>
         </div>
